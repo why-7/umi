@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import datetime
+import re
 
 
 def main():
@@ -9,11 +10,7 @@ def main():
     if len(rodne_cislo) not in [10, 11]:
         messagebox.showerror("Chyba", "Nesprávná délka. Zadejte rodne cislo ve formatu"
                                          " 123456/1234 nebo 123456/123")
-    if rodne_cislo[6] != '/':
-        messagebox.showerror("Chyba", "Nespravny format. Pouzijte symbol / ")
-    elif rodne_cislo[0:6].isnumeric() == 0:
-        messagebox.showerror("Chyba", "Nespravny format. Nepovolené znaky")
-    elif rodne_cislo[7:].isnumeric() == 0:
+    if not re.match(r"^\d{6}/\d{3,4}$", rodne_cislo):
         messagebox.showerror("Chyba", "Nespravny format. Nepovolené znaky")
 
     if rodne_cislo[2] in ['0', '1', '2','3']:
