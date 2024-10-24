@@ -25,17 +25,18 @@ def main():
     month = int(find_month(rodne_cislo, pohlavi))
 
     year = int(find_year(rodne_cislo))
-    if year <= 1904 or year >= 2025:
+    if year <= 1900 or year >= 2025:
         messagebox.showerror("Chyba",  'Nepovolené datum. Nespravny rok')
 
     try:
         final_date = datetime.date(year, month, int(rodne_cislo[4:6])).strftime('%d %b %Y')
     except:
         messagebox.showerror("Chyba",  "Nepovolené datum")
-
+        
+    divisibility_check = ''
     if int(rodne_cislo[0:6] + rodne_cislo[7:]) % 11 == 0:
         divisibility_check = ''
-    else:
+    elif len(rodne_cislo) == 11:
         divisibility_check = '\nRodne číslo neni dělitelné 11 bezezbytku'
 
     messagebox.showinfo('Vysledek', 'Vase pohlavi: ' + pohlavi + '\n' + 'Datum narozeni: '
