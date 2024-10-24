@@ -16,10 +16,9 @@ def main():
     elif rodne_cislo[7:].isnumeric() == 0:
         messagebox.showerror("Chyba", "Nespravny format. Nepovolené znaky")
 
-    if rodne_cislo[2] == '0' or rodne_cislo[2] == '1' or rodne_cislo[2] == '2' or rodne_cislo[2] == '3':
+    if rodne_cislo[2] in ['0', '1', '2','3']:
         pohlavi = "Muz"
-    elif (rodne_cislo[2] == '5' or rodne_cislo[2] == '6' or rodne_cislo[2] == '7'
-          or rodne_cislo[2] == '8'):
+    elif rodne_cislo[2] in ['5', '6', '7', '8']:
         pohlavi = "Zena"
 
     month = int(find_month(rodne_cislo, pohlavi))
