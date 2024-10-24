@@ -6,7 +6,7 @@ import datetime
 def main():
     rodne_cislo = entry.get()
 
-    if len(rodne_cislo) < 10 or len(rodne_cislo) > 11:
+    if len(rodne_cislo) not in [10, 11]:
         messagebox.showerror("Chyba", "Nesprávná délka. Zadejte rodne cislo ve formatu"
                                          " 123456/1234 nebo 123456/123")
     if rodne_cislo[6] != '/':
